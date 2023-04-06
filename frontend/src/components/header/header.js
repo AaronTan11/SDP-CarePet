@@ -1,3 +1,9 @@
 export default function Header() {
-   return <div>This is a header component</div>;
+   return (
+      <div>
+         <div>Logo</div>
+         <div>Home About Support Blog</div>
+         <div>Sign In</div>
+      </div>
+   );
 }
