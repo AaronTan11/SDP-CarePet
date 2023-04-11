@@ -18,7 +18,7 @@ export default function Header() {
                </span>
             </Link>
          </div>
-         <div>Home About Support Blog</div>
+
          <div>Sign In</div>
       </>
    );
