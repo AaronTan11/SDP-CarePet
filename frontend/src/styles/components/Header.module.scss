@@ -1,0 +1,15 @@
+.logo {
+   font-size: 36px;
+   font-weight: 900;
+}
+
+.logoTitle {
+   background: linear-gradient(
+      90deg,
+      rgba(227, 127, 9, 1) 0%,
+      rgba(246, 158, 0, 1) 35%,
+      rgb(238, 190, 45) 100%
+   );
+   -webkit-text-fill-color: transparent;
+   -webkit-background-clip: text;
+}
