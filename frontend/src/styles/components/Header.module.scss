@@ -1,6 +1,9 @@
+@use "../utils/variables" as var;
+
 .heroNav {
    display: flex;
    justify-content: space-between;
+   align-items: center;
    margin: 30px 104px 0 104px;
 
    .logo {
@@ -9,13 +12,9 @@
    }
 
    .logoTitle {
-      background: linear-gradient(
-         90deg,
-         rgba(227, 127, 9, 1) 0%,
-         rgba(246, 158, 0, 1) 35%,
-         rgb(238, 190, 45) 100%
-      );
+      background: var.$linear-color;
       -webkit-text-fill-color: transparent;
+      background-clip: type-of($value: text);
       -webkit-background-clip: text;
    }
 
@@ -32,7 +31,16 @@
       font-size: 20px;
       font-weight: bold;
       padding: 10px 11px;
-      border-radius: 11px;
+
+      &:hover {
+         cursor: pointer;
+      }
+
+      &:last-child {
+         color: white;
+         border-radius: 11px;
+         background: var.$linear-color;
+      }
 
       &:not(:last-child) {
          margin-right: 31px;

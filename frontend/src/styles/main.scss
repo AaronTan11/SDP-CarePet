@@ -6,7 +6,8 @@
    box-sizing: border-box;
    color: var.$default-text-color;
    text-decoration: none;
-   background: #fff9f2;
+   background: var.$background0-color;
+   font-family: var.$default-font-family;
 }
 
 button:hover {

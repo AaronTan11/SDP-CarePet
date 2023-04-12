@@ -1,2 +1,16 @@
-// typography
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+// font
+$default-font-family: "Inter", sans-serif;
+
+// typography color
 $default-text-color: black;
+
+// background color
+$background0-color: #fff9f2;
+$linear-color: linear-gradient(
+   90deg,
+   rgb(243, 149, 41) 0%,
+   rgb(245, 170, 48) 35%,
+   rgb(253, 190, 0) 100%
+);
