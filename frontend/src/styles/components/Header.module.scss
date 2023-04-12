@@ -1,15 +1,49 @@
-.logo {
-   font-size: 36px;
-   font-weight: 900;
-}
+@use "../utils/variables" as var;
 
-.logoTitle {
-   background: linear-gradient(
-      90deg,
-      rgba(227, 127, 9, 1) 0%,
-      rgba(246, 158, 0, 1) 35%,
-      rgb(238, 190, 45) 100%
-   );
-   -webkit-text-fill-color: transparent;
-   -webkit-background-clip: text;
+.heroNav {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin: 30px 104px 0 104px;
+
+   .logo {
+      font-size: 36px;
+      font-weight: 900;
+   }
+
+   .logoTitle {
+      background: var.$linear-color;
+      -webkit-text-fill-color: transparent;
+      background-clip: type-of($value: text);
+      -webkit-background-clip: text;
+   }
+
+   .navItems {
+      font-size: 32px;
+      font-weight: 500;
+
+      &:not(:last-child) {
+         margin-right: 21px;
+      }
+   }
+
+   .navButtons {
+      font-size: 20px;
+      font-weight: bold;
+      padding: 10px 11px;
+
+      &:hover {
+         cursor: pointer;
+      }
+
+      &:last-child {
+         color: white;
+         border-radius: 11px;
+         background: var.$linear-color;
+      }
+
+      &:not(:last-child) {
+         margin-right: 31px;
+      }
+   }
 }

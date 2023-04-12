@@ -12,9 +12,7 @@ export default function Home() {
             />
             <link rel="icon" href="/favicon.ico" />
          </Head>
-         <main>
-            <h1>This can be the body part</h1>
-         </main>
+         <main>{/* <h1>This can be the body part</h1> */}</main>
       </>
    );
 }
