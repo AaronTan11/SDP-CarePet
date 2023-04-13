@@ -2,9 +2,28 @@
 
 // font
 $default-font-family: "Inter", sans-serif;
+$bold-font-weight: bold;
 
 // typography color
 $default-text-color: black;
+$white-color: white;
+
+// font size
+$font-size-20: 20px;
+$font-size-32: 32px;
+$font-size-36: 36px;
+$font-size-48: 48px;
+
+// font weight
+$font-weight-100: 100;
+$font-weight-200: 200;
+$font-weight-300: 300;
+$font-weight-400: 400;
+$font-weight-500: 500;
+$font-weight-600: 600;
+$font-weight-700: 700;
+$font-weight-800: 800;
+$font-weight-900: 900;
 
 // background color
 $background0-color: #fff9f2;
@@ -14,3 +33,9 @@ $linear-color: linear-gradient(
    rgb(245, 170, 48) 35%,
    rgb(253, 190, 0) 100%
 );
+
+// padding
+$padding-10-11: 10px 11px;
+
+// border
+$border-radius-11: 11px;

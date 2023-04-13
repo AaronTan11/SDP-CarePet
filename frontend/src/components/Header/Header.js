@@ -5,7 +5,7 @@ import styles from "../../styles/components/Header.module.scss";
 export default function Header() {
    return (
       <>
-         <nav className={`${styles.heroNav}`}>
+         <header className={`${styles.header}`}>
             <div>
                <Link href={"/"}>
                   <Image
@@ -19,7 +19,7 @@ export default function Header() {
                   </span>
                </Link>
             </div>
-            <div>
+            <nav>
                <Link href={"/"} className={`${styles.navItems}`}>
                   Home
                </Link>
@@ -32,14 +32,16 @@ export default function Header() {
                <Link href={"/"} className={`${styles.navItems}`}>
                   Services
                </Link>
-            </div>
+            </nav>
             <div>
-               <span className={`${styles.navButtons} ${styles.logoTitle}`}>
-                  Sign In
-               </span>
-               <span className={`${styles.navButtons}`}>Sign Up</span>
+               <Link href={"/"}>
+                  <span className={`${styles.signIn}`}>Sign In</span>
+               </Link>
+               <Link href={"/"}>
+                  <span className={`${styles.signUp}`}>Sign Up</span>
+               </Link>
             </div>
-         </nav>
+         </header>
       </>
    );
 }

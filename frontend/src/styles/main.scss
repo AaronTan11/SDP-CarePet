@@ -1,13 +1,8 @@
 @use "utils/variables" as var;
+@use "utils/base" as base;
 
 * {
-   padding: 0;
-   margin: 0;
-   box-sizing: border-box;
-   color: var.$default-text-color;
-   text-decoration: none;
-   background: var.$background0-color;
-   font-family: var.$default-font-family;
+   @include base.default;
 }
 
 button:hover {
