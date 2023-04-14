@@ -24,7 +24,7 @@ export default function Header() {
                   Home
                </Link>
                <Link href={"/about"} className={`${styles.navItems}`}>
-                  About
+                  Adoption
                </Link>
                <Link href={"/"} className={`${styles.navItems}`}>
                   Blog

@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Image from "next/image";
-import commonStyle from "../styles/utils/common.module.scss";
 import homeStyle from "../styles/Home.module.scss";
 
 export default function Home() {
@@ -31,6 +30,8 @@ export default function Home() {
                <Image src={"/HeroPic.png"} width="410" height="450"></Image>
             </section>
          </main>
+
+         <article></article>
       </>
    );
 }
