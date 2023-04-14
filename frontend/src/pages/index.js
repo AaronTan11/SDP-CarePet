@@ -28,7 +28,7 @@ export default function Home() {
                <div className={homeStyle.signUp}>Sign Up Now</div>
             </section>
             <section className={homeStyle.section2}>
-               <Image src={"/HeroPic.png"} width="390" height="500"></Image>
+               <Image src={"/HeroPic.png"} width="410" height="450"></Image>
             </section>
          </main>
       </>
