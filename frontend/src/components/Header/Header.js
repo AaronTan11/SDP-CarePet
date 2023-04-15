@@ -9,7 +9,7 @@ export default function Header() {
             <div>
                <Link href={"/"}>
                   <Image
-                     src="/Logo.png"
+                     src="/Logo.svg"
                      alt="A Paw Logo of CarePet"
                      width="30"
                      height="30"

@@ -13,7 +13,7 @@ export default function Home() {
                name="viewport"
                content="width=device-width, initial-scale=1"
             />
-            <link rel="icon" href="/Logo.png" />
+            <link rel="icon" href="/Logo.svg" />
          </Head>
          <main className={homeStyle.main}>
             <section className={homeStyle.section1}>
@@ -29,7 +29,11 @@ export default function Home() {
                <div className={homeStyle.signUp}>Sign Up Now</div>
             </section>
             <section className={homeStyle.section2}>
-               <Image src={"/HeroPic.png"} width="410" height="450"></Image>
+               <Image
+                  src={"/GoldenRetriever.svg"}
+                  width="410"
+                  height="450"
+               ></Image>
             </section>
          </main>
 
@@ -41,23 +45,23 @@ export default function Home() {
             </div>
             <div className={homeStyle.services}>
                <Services
-                  image={"/PetGroom.png"}
+                  image={"/PetGroom.svg"}
                   title={"Pet Grooming"}
                   content="Lorem ipsum dolor, sit amet consectetur adipisicing elit."
                />
                <Services
-                  image={"/PetGroom.png"}
-                  title={"Pet Grooming"}
+                  image={"/PetHome.svg"}
+                  title={"Pet House"}
                   content="Lorem ipsum dolor, sit amet consectetur adipisicing elit."
                />
                <Services
-                  image={"/Veterinary.png"}
-                  title={"Pet Grooming"}
+                  image={"/PetClinic.svg"}
+                  title={"Pet Clinic"}
                   content="Lorem ipsum dolor, sit amet consectetur adipisicing elit."
                />
                <Services
-                  image={"/PetGroom.png"}
-                  title={"Pet Grooming"}
+                  image={"/PetAdopt.svg"}
+                  title={"Pet Adoption"}
                   content="Lorem ipsum dolor, sit amet consectetur adipisicing elit."
                />
             </div>
