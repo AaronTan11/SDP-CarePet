@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Services from "../components/PetServices/Services";
-import homeStyle from "../styles/Home.module.scss";
+import styles from "../styles/Home.module.scss";
 
 export default function Home() {
    return (
@@ -15,20 +15,20 @@ export default function Home() {
             />
             <link rel="icon" href="/Logo.svg" />
          </Head>
-         <main className={homeStyle.main}>
-            <section className={homeStyle.section1}>
-               <div className={homeStyle.welcome}>
+         <main className={styles.main}>
+            <section className={styles.section1}>
+               <div className={styles.welcome}>
                   Welcome to Care
-                  <span className={homeStyle.linearChar}>Pet</span>, Where Pets
-                  Are Treated Like Family
+                  <span className={styles.linearChar}>Pet</span>, Where Pets Are
+                  Treated Like Family
                </div>
-               <div className={homeStyle.mainContent}>
+               <div className={styles.mainContent}>
                   This is your One-Stop Pet Care Destination for Everything You
                   need for Your Pet.
                </div>
-               <div className={homeStyle.signUp}>Sign Up Now</div>
+               <div className={styles.signUp}>Sign Up Now</div>
             </section>
-            <section className={homeStyle.section2}>
+            <section className={styles.section2}>
                <Image
                   src={"/GoldenRetriever.svg"}
                   width="410"
@@ -37,13 +37,12 @@ export default function Home() {
             </section>
          </main>
 
-         <article className={homeStyle.article1}>
-            <div className={homeStyle.atcContent1}>
+         <article className={styles.article1}>
+            <div className={styles.atcContent1}>
                Malaysia's First{" "}
-               <span className={homeStyle.linearChar}>One-Stop</span> Pet
-               Services
+               <span className={styles.linearChar}>One-Stop</span> Pet Services
             </div>
-            <div className={homeStyle.services}>
+            <div className={styles.services}>
                <Services
                   image={"/PetGroom.svg"}
                   title={"Pet Grooming"}
@@ -66,6 +65,8 @@ export default function Home() {
                />
             </div>
          </article>
+
+         <article className={styles.article2}></article>
       </>
    );
 }
