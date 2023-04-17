@@ -9,7 +9,7 @@ export default function Header() {
             <div>
                <Link href={"/"}>
                   <Image
-                     src="/Logo.png"
+                     src="/Logo.svg"
                      alt="A Paw Logo of CarePet"
                      width="30"
                      height="30"
@@ -23,8 +23,8 @@ export default function Header() {
                <Link href={"/"} className={`${styles.navItems}`}>
                   Home
                </Link>
-               <Link href={"/about"} className={`${styles.navItems}`}>
-                  About
+               <Link href={"/"} className={`${styles.navItems}`}>
+                  Adoption
                </Link>
                <Link href={"/"} className={`${styles.navItems}`}>
                   Blog
