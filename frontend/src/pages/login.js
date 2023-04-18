@@ -5,7 +5,7 @@ function login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleClick = (event) => {
     event.preventDefault();
     console.log("Username", username);
     console.log("Password", password);
@@ -14,12 +14,13 @@ function login() {
   return (
     <div className={styles.cover}>
       <div className={styles.inside}>
+        <h1>Login</h1>
         <div className={styles.Bar}>
-          <h1>Login</h1>
-          <form onSubmit={handleSubmit}>
+          <form>
             <label>
               Username :
               <input
+                className={styles.input}
                 type="text"
                 value={username}
                 placeholder="Please enter username"
@@ -30,17 +31,19 @@ function login() {
             <label>
               Password :
               <input
+                className={styles.input}
                 type="password"
                 value={password}
                 placeholder="Please enter password"
-                onChange={(event) => setPassword(e.target.value)}
+                onChange={(event) => setPassword(event.target.value)}
               ></input>
             </label>
             <br />
-            <div className={styles.btn}>
-              <button type="submit">Log In</button>
-            </div>
           </form>
+        </div>
+
+        <div className={styles.btn} onClick={handleClick}>
+          <button type="submit">Log In</button>
         </div>
       </div>
     </div>
