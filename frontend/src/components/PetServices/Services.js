@@ -1,5 +1,5 @@
 import Image from "next/image";
-import style from "../../styles/components/Services.module.scss";
+import style from "./Services.module.scss";
 
 export default function Services({ image, title, content }) {
    return (

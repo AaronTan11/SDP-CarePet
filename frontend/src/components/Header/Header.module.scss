@@ -1,5 +1,5 @@
-@use "../utils/variables" as var;
-@use "../utils/mixins" as mx;
+@use "../../styles/utils/variables" as var;
+@use "../../styles/utils/mixins" as mx;
 
 .header {
    display: flex;

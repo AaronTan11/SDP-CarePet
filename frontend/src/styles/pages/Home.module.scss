@@ -1,5 +1,5 @@
-@use "utils/variables" as var;
-@use "utils/mixins" as mx;
+@use "../utils/variables" as var;
+@use "../utils/mixins" as mx;
 
 .linearChar {
    @include mx.char_linear;
