@@ -41,10 +41,9 @@ function login() {
             <br />
           </form>
         </div>
-
-        <div className={styles.btn} onClick={handleClick}>
-          <button type="submit">Log In</button>
-        </div>
+        <button className={styles.btn} onClick={handleClick} type="submit">
+          Log In
+        </button>
       </div>
     </div>
   );
