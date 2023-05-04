@@ -1,6 +1,6 @@
 import styles from "../styles/AdminSideNav.module.scss";
 
-function admin() {
+function AdminSideNav() {
   return (
     <div className={styles.sidenav}>
       <img
@@ -10,7 +10,8 @@ function admin() {
       ></img>
       <div className={styles.sidenavContent}>
         <a href="#">My Admin</a>
-        <a href="#">Add Product</a>
+        <a href="#">Add Dog</a>
+        <a href="#">Check Adoption Records</a>
         <a href="#">Check Records</a>
         <a href="#">Log Out</a>
       </div>
@@ -18,4 +19,4 @@ function admin() {
   );
 }
 
-export default admin;
+export default AdminSideNav;
