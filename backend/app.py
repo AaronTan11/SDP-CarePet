@@ -3,7 +3,7 @@ from flask import request, jsonify
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
-import models
+from models import *
 
 import dotenv
 import os
@@ -16,6 +16,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 
+# Routes
 @app.route("/")
 def home():
     return "Hello, World!"
