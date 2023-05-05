@@ -10,10 +10,4 @@ class User(Base):
     id = Column(Integer, primary_key=True)
     username = Column(String(80), unique=True, nullable=False)
     email = Column(String(120), unique=True, nullable=False)
-
-
-class Author(Base):
-    __tablename__ = "author"
-
-    id: Mapped[int] = mapped_column(primary_key=True)
-    name: Mapped[str] = mapped_column(String(30))
+    password = Column(String(250), unique=False, nullable=False)
