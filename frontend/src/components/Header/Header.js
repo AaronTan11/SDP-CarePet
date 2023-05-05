@@ -34,10 +34,10 @@ export default function Header() {
                </Link>
             </nav>
             <div>
-               <Link href={"/"}>
+               <Link href={"/login"}>
                   <span className={`${styles.signIn}`}>Sign In</span>
                </Link>
-               <Link href={"/"}>
+               <Link href={"/signup"}>
                   <span className={`${styles.signUp}`}>Sign Up</span>
                </Link>
             </div>

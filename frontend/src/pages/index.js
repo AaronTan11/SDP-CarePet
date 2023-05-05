@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import Services from "../components/PetServices/Services";
 import styles from "../styles/pages/Home.module.scss";
 
@@ -26,7 +27,9 @@ export default function Home() {
                   This is your One-Stop Pet Care Destination for Everything You
                   need for Your Pet.
                </div>
-               <div className={styles.signUp}>Sign Up Now</div>
+               <Link href={"/signup"} className={styles.signUp}>
+                  Sign Up Now
+               </Link>
             </section>
             <section className={styles.section2}>
                <Image
