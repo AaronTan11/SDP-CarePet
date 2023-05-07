@@ -1,6 +1,8 @@
 import { useState } from "react";
 import styles from "../styles/adoptionform.module.scss";
 
+
+
 function apply() {
   const [username, setUsername] = useState("");
   const [contactnum, setcontactnum] = useState("");
@@ -18,18 +20,24 @@ function apply() {
     console.log("Salary", salary);
   };
 
+  const handleClick = (event) => {
+    event.preventDefault();
+    mutation.mutate({ username, contactnum, email, petid, salary });
+ };
+
   return (
     <div className={styles.cover}>
       <div className={styles.inside}>
         <div className={styles.Bar}>
+          
           <h1>Application Form</h1>
-          <h2>Please Fill In The Form</h2>
-          <h5>You are required to fill in accurate work salary of yours</h5>
+          
           <form onSubmit={handleSubmit}>
             <label>
               Username :
-              <br />
               <input
+                className={styles.input}
+                name="username"
                 type="text"
                 value={username}
                 placeholder="Please enter username"
@@ -39,8 +47,9 @@ function apply() {
             <br />
             <label>
               Contact Number :
-              <br />
               <input
+                className={styles.input}
+                name="contactnum"
                 type="text"
                 value={contactnum}
                 placeholder="Enter contact number"
@@ -50,9 +59,10 @@ function apply() {
             <br />
             <label>
               Email :
-            <br />
               <input
-                type="text"
+                className={styles.input}
+                name="email"
+                type="email"
                 value={email}
                 placeholder="Please enter your email"
                 onChange={(event) => setemail(event.target.value)}
@@ -61,8 +71,9 @@ function apply() {
             <br />
             <label>
               PetID :
-            <br />
               <input
+                className={styles.input}
+                name="petid"
                 type="text"
                 value={petid}
                 placeholder="Please enter the pet ID"
@@ -72,8 +83,9 @@ function apply() {
             <br />
             <label>
               Estimated Work Salary :
-            <br />
               <input
+                className={styles.input}
+                name="salary"
                 type="text"
                 value={salary}
                 placeholder="Accurate Work Salary"
@@ -81,13 +93,18 @@ function apply() {
               ></input>
             </label>
             <br />
-            <div className={styles.btn}>
-              <button type="submit">Submit</button>
-            </div>
           </form>
         </div>
+        <button
+               className={styles.btn}
+               onClick={handleClick}
+               type="submit"
+            >
+               Submit
+            </button>
       </div>
     </div>
   );
 }
 export default apply;
+
