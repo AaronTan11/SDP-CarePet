@@ -1,0 +1,101 @@
+.bg{
+    background-color: white;
+}
+
+.h1{
+    position: relative;
+    text-align: center;
+    justify-content: center;
+    color: lightgreen;
+    padding: 1cm;
+    font-weight: 1000px;
+}
+
+.h3{
+    color: rgb(0, 0, 0);
+    text-align: center;
+    justify-content: center;
+    font-weight: 500px;
+    font-size: 50px;
+}
+
+.s1{
+    color: rgb(239, 239, 18);
+}
+
+.card {
+    margin: 2cm;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    justify-content: space-evenly;
+}
+
+
+.image {
+    margin-bottom: 1cm;
+    border-radius: 20px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    background-color: powderblue;
+}
+
+.title {
+    font-size: 2em;
+    font-weight: bold;
+    justify-content: center;
+    text-align: center;
+    margin: 0.5rem 5%;
+    color: rgb(209, 196, 10);
+    text-decoration: underline;
+    text-decoration-color: rgb(116, 114, 114);
+
+}
+
+.body{
+    color: rgb(1, 1, 1);
+    margin: 0.5rem 5%;
+    text-align: justify;
+}
+
+
+.btn {
+    margin: 1rem;
+    align-items: center;
+    background-color: #0A66C2;
+    border: 0;
+    border-radius: 100px;
+    box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: center;
+    min-height: 40px;
+    padding: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+}
+
+
+.btn:hover,
+.btn:focus { 
+  background-color: #16437E;
+  color: #ffffff;
+}
+
+.btn:active {
+  background: #09223b;
+  color: rgb(255, 255, 255, .7);
+}
+
+.btn:disabled { 
+  cursor: not-allowed;
+  background: rgba(0, 0, 0, .08);
+  color: rgba(0, 0, 0, .3);
+}
+
