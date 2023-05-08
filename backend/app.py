@@ -64,6 +64,25 @@ def login():
 
     return jsonify({"success": "User logged in successfully", "user_id": user.id, "username": user.username}), 200
 
+# Booking
+@app.route("/api/Booking", methods=["POST"])
+def booking():
+    data = request.get_json()
+
+    if not data or not data.get("name") or not data.get("contact") or not data.get("email") or not data.get("date"):
+        return jsonify({"error": "Missing required fields"}), 400
+    
+    
+    booking = Booking(name=data['name'],contact=data['contact'],email=data['email'],Date=data['date'])
+    db_session.add(booking)
+    db_session.commit()
+
+    return jsonify({"Success": "Book Successfully"}),201
+
+
+
+
+
 
 # Getting Users
 

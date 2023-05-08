@@ -9,6 +9,8 @@ function login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const [usernameError, setUsernameError] = useState("");
+
   const router = useRouter();
 
   const registerUser = async (userData) => {
@@ -22,7 +24,7 @@ function login() {
   const mutation = useMutation(registerUser, {
     onSuccess: (data) => {
       console.log(data); // Handle successful registration, e.g., show a success message or redirect to another page
-      router.push("/login");
+      router.push("");
     },
     onError: (error) => {
       console.error("Error during registration:", error); // Handle error response, e.g., show an error message
@@ -31,6 +33,10 @@ function login() {
 
   const handleClick = (event) => {
     event.preventDefault();
+    if (!username) {
+      setUsernameError("Please enter a username.");
+      return;
+    }
     mutation.mutate({ username, email, password });
   };
 
@@ -48,8 +54,12 @@ function login() {
                 type="text"
                 value={username}
                 placeholder="Please enter username"
-                onChange={(event) => setUsername(event.target.value)}
+                onChange={(event) => {
+                  setUsername(event.target.value);
+                  setUsernameError("");
+                }}
               ></input>
+              {usernameError && <p className={styles.error}>{usernameError}</p>}
             </label>
             <br />
             <label>
