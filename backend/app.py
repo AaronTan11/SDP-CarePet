@@ -5,6 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from flask_bcrypt import Bcrypt
 from models import *
+from auth import *
 
 import dotenv
 import os
@@ -47,10 +48,12 @@ def register():
     db_session.add(user)
     db_session.commit()
 
-    return jsonify({"success": "User registered successfully"}), 201
-
+    token = generate_token(user.id)
+    return jsonify({"success": "User registered successfully", "token": token}), 201
 
 # Login route
+
+
 @app.route("/api/login", methods=["POST"])
 def login():
     data = request.get_json()
@@ -62,7 +65,8 @@ def login():
     if not user or not bcrypt.check_password_hash(user.password, data["password"]):
         return jsonify({"error": "Invalid email or password"}), 401
 
-    return jsonify({"success": "User logged in successfully", "user_id": user.id, "username": user.username}), 200
+    token = generate_token(user.id)
+    return jsonify({"success": "User logged in successfully", "user_id": user.id, "username": user.username, "token": token}), 200
 
 # Booking
 @app.route("/api/Booking", methods=["POST"])
