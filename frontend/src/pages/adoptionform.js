@@ -20,10 +20,6 @@ function apply() {
     console.log("Salary", salary);
   };
 
-  const handleClick = (event) => {
-    event.preventDefault();
-    mutation.mutate({ username, contactnum, email, petid, salary });
- };
 
   return (
     <div className={styles.cover}>
@@ -40,7 +36,7 @@ function apply() {
                 name="username"
                 type="text"
                 value={username}
-                placeholder="Please enter username"
+                placeholder="Please enter username...."
                 onChange={(event) => setUsername(event.target.value)}
               ></input>
             </label>
@@ -52,7 +48,7 @@ function apply() {
                 name="contactnum"
                 type="text"
                 value={contactnum}
-                placeholder="Enter contact number"
+                placeholder="Enter contact number...."
                 onChange={(event) => setcontactnum(event.target.value)}
               ></input>
             </label>
@@ -62,9 +58,10 @@ function apply() {
               <input
                 className={styles.input}
                 name="email"
+                id="email"
                 type="email"
                 value={email}
-                placeholder="Please enter your email"
+                placeholder="Please enter your email...."
                 onChange={(event) => setemail(event.target.value)}
               ></input>
             </label>
@@ -76,7 +73,7 @@ function apply() {
                 name="petid"
                 type="text"
                 value={petid}
-                placeholder="Please enter the pet ID"
+                placeholder="Please enter the pet ID...."
                 onChange={(event) => setpetid(event.target.value)}
               ></input>
             </label>
@@ -88,7 +85,7 @@ function apply() {
                 name="salary"
                 type="text"
                 value={salary}
-                placeholder="Accurate Work Salary"
+                placeholder="Enter Accurate Work Salary...."
                 onChange={(event) => setsalary(event.target.value)}
               ></input>
             </label>
@@ -97,7 +94,7 @@ function apply() {
         </div>
         <button
                className={styles.btn}
-               onClick={handleClick}
+               
                type="submit"
             >
                Submit
