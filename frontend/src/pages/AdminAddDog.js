@@ -133,8 +133,8 @@ function AdminAddDog() {
                   setDescriptionError("");
                 }}
               ></textarea>
-              {product_imgError && (
-                <p className={styles.error}>{product_imgError}</p>
+              {descriptionError && (
+                <p className={styles.error}>{descriptionError}</p>
               )}
             </div>
 
