@@ -1,10 +1,10 @@
-import styles from "../styles/UserProfile.module.scss";
-import User from "../components/User";
+import UserSideNav from "../components/SideNav/UserSideNav";
+import styles from "../styles/UserDashboard.module.scss";
 
-function UserProfile() {
+function UserDashboard() {
    return (
       <div className={styles.container}>
-         <User />
+         <UserSideNav />
          <div className={styles.myaccount}>
             <h1>Welcome, </h1>
             <div className={styles.myaccountcontent}>
@@ -17,4 +17,4 @@ function UserProfile() {
    );
 }
 
-export default UserProfile;
+export default UserDashboard;

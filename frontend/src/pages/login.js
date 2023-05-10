@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import styles from "../styles/Login.module.scss";
 import axios from "axios";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation } from "react-query";
 
 function Login() {
    const [email, setEmail] = useState("");
@@ -20,8 +20,8 @@ function Login() {
    const mutation = useMutation(loginUser, {
       onSuccess: (data) => {
          console.log(data);
-         localStorage.setItem("token", data.token); // Store the token in localStorage
-         router.push("/UserProfile");
+         localStorage.setItem("user_id", data.user_id);
+         router.push("/UserDashboard");
       },
       onError: (error) => {
          console.error("Error during login:", error);
@@ -32,13 +32,6 @@ function Login() {
       event.preventDefault();
       mutation.mutate({ email, password });
    };
-
-   useEffect(() => {
-      const token = localStorage.getItem("token");
-      if (token) {
-         router.push("/UserProfile");
-      }
-   }, [router]);
 
    return (
       <div className={styles.cover}>

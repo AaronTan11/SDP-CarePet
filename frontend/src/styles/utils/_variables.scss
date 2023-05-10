@@ -9,14 +9,14 @@ $default-text-color: black;
 $white-color: white;
 
 // font size
-$font-size-12: 12px;
-$font-size-16: 16px;
-$font-size-20: 20px;
-$font-size-25: 25px;
-$font-size-30: 30px;
-$font-size-32: 32px;
-$font-size-36: 36px;
-$font-size-48: 48px;
+$font-size-12: 0.75rem; // 12px
+$font-size-16: 1rem; // 16px
+$font-size-20: 1.25rem; // 20px
+$font-size-25: 1.5625rem; // 25px
+$font-size-30: 1.875rem; // 30px
+$font-size-32: 2rem; // 32px
+$font-size-36: 2.25rem; // 36px
+$font-size-48: 3rem; // 48px
 
 // font weight
 $font-weight-100: 100;
@@ -37,9 +37,24 @@ $linear-color: linear-gradient(
    rgb(245, 170, 48) 35%,
    rgb(253, 190, 0) 100%
 );
+$sidebar-bg-color: #f7e9d8; // You can set this to any color you want
+$sidebar-hover-color: #f3d3c1; // Same as above
+$font-color: #055149;
+$font-size-16: 16px;
+$font-size-24: 24px;
+$font-weight-bold: 700;
+$background-color: #fff;
 
 // padding
 $padding-10-11: 10px 11px;
 
 // border
 $border-radius-11: 11px;
+
+// border colour
+$border-color: #ddd;
+
+// Breakpoints
+$breakpoint-small: 480px;
+$breakpoint-medium: 768px;
+$breakpoint-large: 1024px;

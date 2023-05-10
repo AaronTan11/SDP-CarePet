@@ -1,7 +1,10 @@
 import Link from "next/link";
-import styles from "../styles/AdminSideNav.module.scss";
+import styles from "./SideNav.module.scss";
 
 function UserSideNav() {
+   const handleLogout = () => {
+      localStorage.removeItem("user_id");
+   };
    return (
       <div className={styles.sidenav}>
          <img
@@ -10,9 +13,12 @@ function UserSideNav() {
             alt="image user"
          ></img>
          <div className={styles.sidenavContent}>
-            <Link href="#">My Profile</Link>
+            <Link href="/profile">My Profile</Link>
+            <Link href="/booking-appointment">Pet Services</Link>
             <Link href="#">Check Records</Link>
-            <Link href="/">Log Out</Link>
+            <Link href="/" onClick={handleLogout}>
+               Log Out
+            </Link>
          </div>
       </div>
    );
