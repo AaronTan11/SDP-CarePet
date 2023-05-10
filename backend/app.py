@@ -132,6 +132,37 @@ def booking():
     return jsonify({"Success": "Book Successfully"}), 201
 
 
+@app.route("/api/AdoptionForm", methods=['POST'])
+def form():
+    data = request.get_json()
+
+    if not data or not data.get('username') or not data.get('contact') or not data.get('email') or not data.get('petid') or not data.get('salary'):
+        return jsonify({'error': 'Missing required fields'}),
+
+    form = AdoptionForm(usrename=data['username'], contact=data['contact'],
+                        email=data['email'], petid=data['petid'], salary=data['salary'])
+    db_session.add(form)
+    db_session.commit()
+
+    return jsonify({"Success": "Successfully"}), 201
+
+
+@app.route("/api/AdminAddDog", methods=['POST'])
+def add():
+    data = request.get_json()
+
+    if not data or not data.get('petid') or not data.get('product_name') or not data.get('product_img') or not data.get('description'):
+        return jsonify({'error': "Missing required fields"}),
+
+    add = AdminAddDog(petID=data['petid'], Dogname=data['product_name'],
+                      Image=data['product_img'], description=data['description'])
+    db_session.add(add)
+    db_session.commit()
+
+    return jsonify({"Success": "Added Successfully"}), 201
+# Getting Users
+
+
 # Shutting down sessions
 @app.teardown_appcontext
 def shutdown_session(exception=None):

@@ -34,7 +34,7 @@ class Booking(Base):
 class AdoptionForm(Base):
     __tablename__ = "adoptionform"
 
-    petID = Column(Integer, primary_key=True)
+    petid = Column(Integer, primary_key=True)
     name = Column(String(80), unique=True, nullable=False)
     contact = Column(String(80), unique=False, nullable=False)
     email = Column(String(120), unique=True, nullable=False)

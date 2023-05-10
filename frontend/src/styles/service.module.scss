@@ -1,22 +1,24 @@
 .bg{
-    background-color: white;
+    background-color: #fff9f2;
 }
 
-.h1{
-    position: relative;
-    text-align: center;
-    justify-content: center;
-    color: lightgreen;
-    padding: 1cm;
-    font-weight: 1000px;
-}
+// .h1{
+//     position: relative;
+//     text-align: center;
+//     justify-content: center;
+//     color: lightgreen;
+//     padding: 1cm;
+//     font-weight: 1000px;
+// }
 
 .h3{
     color: rgb(0, 0, 0);
     text-align: center;
     justify-content: center;
     font-weight: 500px;
-    font-size: 50px;
+    font-size: 40px;
+    padding: 1cm;
+
 }
 
 .s1{
@@ -24,7 +26,7 @@
 }
 
 .card {
-    margin: 2cm;
+    margin: 1cm;
     display: flex;
     flex-wrap: wrap;
     align-items: center;

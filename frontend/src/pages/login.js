@@ -20,11 +20,11 @@ function Login() {
    const mutation = useMutation(loginUser, {
       onSuccess: (data) => {
          console.log(data);
-         localStorage.setItem("user_id", data.user_id);
-         router.push("/UserDashboard");
+         localStorage.setItem("user", JSON.stringify(data));
+         router.push("/UserProfile");
       },
       onError: (error) => {
-         console.error("Error during login:", error);
+         console.error("Error during login:", error); // Handle error response, e.g., show an error message
       },
    });
 
