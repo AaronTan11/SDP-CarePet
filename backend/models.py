@@ -1,7 +1,6 @@
 from sqlalchemy import Column, Integer, String, Date
 from database import Base
-from sqlalchemy.orm import mapped_column
-from sqlalchemy.orm import Mapped
+from sqlalchemy.orm import relationship, Mapped
 
 
 class User(Base):
@@ -11,15 +10,26 @@ class User(Base):
     username = Column(String(80), unique=True, nullable=False)
     email = Column(String(120), unique=True, nullable=False)
     password = Column(String(250), unique=False, nullable=False)
+    profile_pic = Column(String(255), nullable=False)
+    user_role = Column(String(250), nullable=False)
+
+    contact = Column(String(80), unique=False, nullable=True)
+    bookings: Mapped[list["Booking"]] = relationship(
+        "Booking", primaryjoin='foreign(Booking.user_id) == User.id')
+
 
 class Booking(Base):
     __tablename__ = "booking"
 
     id = Column(Integer, primary_key=True)
-    name = Column(String(80), unique=True, nullable=False)
+    user_id = Column(Integer, nullable=False)
+    name = Column(String(80), unique=False, nullable=False)
     contact = Column(String(80), unique=False, nullable=False)
-    email = Column(String(120), unique=True, nullable=False)
-    Date = Column(Date, unique=True, nullable=False)
+    email = Column(String(250), unique=False, nullable=False)
+    date = Column(Date, unique=False, nullable=False)
+    service_type = Column(String(100), unique=False, nullable=False)
+    pet_breed = Column(String(255), unique=False, nullable=False)
+
 
 class AdoptionForm(Base):
     __tablename__ = "adoptionform"
@@ -30,13 +40,15 @@ class AdoptionForm(Base):
     email = Column(String(120), unique=True, nullable=False)
     estSalary = Column(Integer, unique=True, nullable=False)
 
+
 class AdminAddDog(Base):
     __tablename__ = "AdminAddDog"
 
     petID = Column(Integer, primary_key=True)
     Dogname = Column(String(80), unique=True, nullable=False)
-    Image = Column(String(20), nullable=True)    
+    Image = Column(String(20), nullable=True)
     desription = Column(String(80), unique=False, nullable=False)
+
 
 class Admin(Base):
     __tablename__ = "Admin"
@@ -44,9 +56,3 @@ class Admin(Base):
     id = Column(Integer, primary_key=True)
     username = Column(String(80), unique=True, nullable=False)
     password = Column(String(250), unique=False, nullable=False)
-
-
-
-    
-
-

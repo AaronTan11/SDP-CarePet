@@ -1,15 +1,18 @@
 import Layout from "../components/Layout";
 import styles from "../styles/main.scss";
 
-import { QueryClientProvider } from "@tanstack/react-query";
-import queryClient from "../components/Query/queryClient";
+import { QueryClient, QueryClientProvider } from "react-query";
 
-export default function App({ Component, pageProps }) {
+const queryClient = new QueryClient();
+
+function App({ Component, pageProps }) {
    return (
-      <Layout>
-         <QueryClientProvider client={queryClient}>
+      <QueryClientProvider client={queryClient}>
+         <Layout>
             <Component {...pageProps} />
-         </QueryClientProvider>
-      </Layout>
+         </Layout>
+      </QueryClientProvider>
    );
 }
+
+export default App;
