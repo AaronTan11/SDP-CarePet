@@ -6,14 +6,14 @@ import axios from "axios";
 import { useMutation } from "@tanstack/react-query";
 
 function AdminAddDog() {
-  const [petid, setpetid] = useState();
-  const [product_name, setProductname] = useState();
-  const [product_img, setProductImg] = useState();
+  const [petID, setpetID] = useState();
+  const [Dogname, setProductname] = useState();
+  const [Image, setProductImg] = useState();
   const [description, setDescription] = useState();
 
-  const [petidError, setpetidError] = useState();
-  const [product_nameError, setProductnameError] = useState();
-  const [product_imgError, setProductImgError] = useState();
+  const [petIDError, setpetIDError] = useState();
+  const [DognameError, setProductnameError] = useState();
+  const [ImageError, setProductImgError] = useState();
   const [descriptionError, setDescriptionError] = useState();
 
   const router = useRouter;
@@ -26,7 +26,7 @@ function AdminAddDog() {
     return response.data;
   };
 
-  const mutation = useMutation(AdminAddDog, {
+  const mutation = useMutation(add, {
     onSuccess: (data) => {
       console.log(data);
       router.push("");
@@ -38,18 +38,18 @@ function AdminAddDog() {
 
   const handleClick = (event) => {
     event.preventDefault();
-    console.log("petid", petid);
-    console.log("product_name", product_name);
-    console.log("product_img", product_img);
+    console.log("petID", petID);
+    console.log("Dogname", Dogname);
+    console.log("Image", Image);
     console.log("description", description);
 
-    if (!petid) {
-      setpetidError("Please enter PetID");
+    if (!petID) {
+      setpetIDError("Please enter petID");
       return;
-    } else if (!product_name) {
+    } else if (!Dogname) {
       setProductnameError("Please enter name");
       return;
-    } else if (!product_img) {
+    } else if (!Image) {
       setProductImgError("Please insert Image");
       return;
     } else if (!description) {
@@ -57,12 +57,13 @@ function AdminAddDog() {
       return;
     }
 
-    mutation.mutate({ petid, product_name, product_img, description });
+    mutation.mutate({ petID, Dogname, Image, description });
   };
 
   return (
     <div className={styles.container}>
       <AdminSideNav />
+
       <div className={styles.formContainer}>
         <h1>Welcome,</h1>
         <b>Dog Adoption</b>
@@ -73,15 +74,16 @@ function AdminAddDog() {
               <input
                 type="text"
                 required
-                name="petid"
+                name="petID"
+                id="petID"
                 placeholder="Enter Category Name"
                 className={styles.formcontrol}
                 onChange={(event) => {
-                  setpetid(event.target.value);
-                  setpetidError("");
+                  setpetID(event.target.value);
+                  setpetIDError("");
                 }}
               ></input>
-              {petidError && <p className={styles.error}>{petidError}</p>}
+              {petIDError && <p className={styles.error}>{petIDError}</p>}
             </div>
 
             <div className={styles.add}>
@@ -89,7 +91,8 @@ function AdminAddDog() {
               <input
                 type="text"
                 required
-                name="product_name"
+                name="Dogname"
+                id="Dogname"
                 placeholder="Enter Category Name"
                 className={styles.formcontrol}
                 onChange={(event) => {
@@ -97,9 +100,7 @@ function AdminAddDog() {
                   setProductnameError("");
                 }}
               ></input>
-              {product_nameError && (
-                <p className={styles.error}>{product_nameError}</p>
-              )}
+              {DognameError && <p className={styles.error}>{DognameError}</p>}
             </div>
 
             <div className={styles.add}>
@@ -107,7 +108,8 @@ function AdminAddDog() {
               <input
                 type="text"
                 required
-                name="product_img"
+                name="Image"
+                id="Image"
                 placeholder="insert Image"
                 className={styles.formcontrol}
                 onChange={(event) => {
@@ -115,9 +117,7 @@ function AdminAddDog() {
                   setProductImgError("");
                 }}
               ></input>
-              {product_imgError && (
-                <p className={styles.error}>{product_imgError}</p>
-              )}
+              {ImageError && <p className={styles.error}>{ImageError}</p>}
             </div>
 
             <div className={styles.add}>
@@ -126,6 +126,7 @@ function AdminAddDog() {
                 rows="3"
                 required
                 name="description"
+                id="description"
                 placeholder="Enter Description"
                 className={styles.formcontrol}
                 onChange={(event) => {
@@ -143,11 +144,11 @@ function AdminAddDog() {
                 type="submit"
                 className={styles.btnSave}
                 name="add_product_btn"
+                onClick={handleClick}
+                disabled={mutation.isLoading}
               >
                 Save
               </button>
-              {mutation.isError && <p>Error: {mutation.error.message}</p>}
-              {mutation.isSuccess && <p>User logged in successfully!</p>}
             </div>
           </div>
         </form>

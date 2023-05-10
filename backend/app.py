@@ -100,10 +100,10 @@ def form():
 def add():
     data = request.get_json()
 
-    if not data or not data.get('petid') or not data.get('product_name') or not data.get('product_img') or not data.get('description'):
+    if not data or not data.get('petID') or not data.get('Dogname') or not data.get('Image') or not data.get('description'):
         return jsonify({'error': "Missing required fields"}),
 
-    add = AdminAddDog(petID=data['petid'], Dogname = data['product_name'], Image = data['product_img'], description = data['description'])
+    add = AdminAddDog(petID=data["petID"], Dogname = data["Dogname"], Image = data["Image"], description = data["description"])
     db_session.add(add)
     db_session.commit()
 

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "../styles/adoptionform.module.scss";
+import Header from "../components/Header/Header";
 
 function apply() {
   const [username, setUsername] = useState("");
@@ -94,8 +95,6 @@ function apply() {
         <button className={styles.btn} onClick={handleClick} type="submit">
           Submit
         </button>
-        {mutation.isError && <p>Error: {mutation.error.message}</p>}
-        {mutation.isSuccess && <p>User logged in successfully!</p>}
       </div>
     </div>
   );

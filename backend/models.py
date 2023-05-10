@@ -36,7 +36,7 @@ class AdminAddDog(Base):
     petID = Column(Integer, primary_key=True)
     Dogname = Column(String(80), unique=True, nullable=False)
     Image = Column(String(20), nullable=True)    
-    desription = Column(String(80), unique=False, nullable=False)
+    description = Column(String(100), unique=False,  nullable=False)
 
 class Admin(Base):
     __tablename__ = "Admin"
