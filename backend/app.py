@@ -52,6 +52,7 @@ def register():
         user = User(
             username=data["username"],
             email=data["email"],
+            contact=data["contact"],
             password=hashed_password,
             profile_pic=profile_pic,
             user_role="admin"
@@ -61,6 +62,7 @@ def register():
         user = User(
             username=data["username"],
             email=data["email"],
+            contact=data["contact"],
             password=hashed_password,
             profile_pic=profile_pic,
             user_role="user"
@@ -70,6 +72,45 @@ def register():
     db_session.commit()
 
     return jsonify({"success": "User registered successfully"}), 201
+
+
+# Add staff route
+@app.route("/api/add-staff", methods=["POST"])
+def add_staff():
+    data = request.get_json()
+
+    if not data or not data.get("username") or not data.get("email") or not data.get("password"):
+        return jsonify({"error": "Missing required fields"}), 400
+
+    existing_user_email = User.query.filter_by(email=data["email"]).first()
+    existing_user_username = User.query.filter_by(
+        username=data["username"]).first()
+
+    if existing_user_email:
+        return jsonify({"error": "User with this email already exists"}), 409
+
+    if existing_user_username:
+        return jsonify({"error": "User with this username already exists"}), 409
+
+    hashed_password = bcrypt.generate_password_hash(
+        data["password"]).decode("utf-8")
+
+    profile_pic = get_gravatar_url(data["email"])
+
+    # User role is "staff"
+    user = User(
+        username=data["username"],
+        email=data["email"],
+        password=hashed_password,
+        profile_pic=profile_pic,
+        user_role="staff",
+        contact=data.get("contact")  # Contact is optional
+    )
+
+    db_session.add(user)
+    db_session.commit()
+
+    return jsonify({"success": "Staff added successfully"}), 201
 
 
 # Login route
@@ -85,13 +126,29 @@ def login():
         return jsonify({"error": "Invalid email or password"}), 401
 
     return jsonify(
-        {"success": "User logged in successfully", "user_id": user.id, "username": user.username}), 200
+        {"success": "User logged in successfully", "user_id": user.id}), 200
 
 
 # Logout route
 @app.route('/api/logout', methods=['POST'])
 def logout():
     return jsonify({"success": "User logged out successfully"}), 200
+
+
+# Get Staff Data
+@app.route("/api/staff", methods=["GET"])
+def get_staff_data():
+
+    # Fetch all users where user_role is 'staff'
+    staffs = User.query.filter_by(user_role="staff").all()
+
+    staff_data = [{"id": staff.id,
+                   "username": staff.username,
+                   "email": staff.email,
+                   "profile_pic": staff.profile_pic,
+                   "contact": staff.contact} for staff in staffs]
+
+    return jsonify(staff_data), 200
 
 
 # Get User Data
@@ -110,7 +167,6 @@ def get_user_data(user_id):
         "username": user.username,
         "email": user.email,
         "profile_pic": user.profile_pic,
-        "user_role": user.user_role,
         "contact": user.contact,
         "bookings": bookings
     }), 200

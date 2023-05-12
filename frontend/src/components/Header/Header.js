@@ -44,7 +44,12 @@ export default function Header() {
                   <Link href={"/login"}>
                      <span className={`${styles.signIn}`}>Sign In</span>
                   </Link>
-                  <Link href={"/signup"}>
+                  <Link
+                     href={{
+                        pathname: "/signup/[type]",
+                        query: { type: "user" },
+                     }}
+                  >
                      <span className={`${styles.signUp}`}>Sign Up</span>
                   </Link>
                </>
