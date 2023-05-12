@@ -15,7 +15,7 @@ const ProfileCard = () => {
                alt="Profile"
             />
             <div className={styles.additionalInfo}>
-               <p>Member Since {user.joinDate}</p>
+               <p>Member Since {user.username}</p>
                <p>{user.postsCount} Posts</p>
             </div>
          </div>

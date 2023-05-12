@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "./SideNav.module.scss";
+import styles from "./UserSideNav.module.scss";
 
 function UserSideNav() {
    const handleLogout = () => {
@@ -16,6 +16,7 @@ function UserSideNav() {
             <Link href="/profile">My Profile</Link>
             <Link href="/booking-appointment">Pet Services</Link>
             <Link href="#">Check Records</Link>
+            <Link href="/staff">Add Staff</Link>
             <Link href="/" onClick={handleLogout}>
                Log Out
             </Link>
