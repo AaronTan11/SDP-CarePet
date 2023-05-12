@@ -80,9 +80,6 @@ def booking():
     return jsonify({"Success": "Book Successfully"}),201
 
 
-
-
-
 @app.route("/api/AdoptionForm", methods=['POST'])
 def form():
     data = request.get_json()
@@ -103,11 +100,11 @@ def add():
     if not data or not data.get('petID') or not data.get('Dogname') or not data.get('Image') or not data.get('description'):
         return jsonify({'error': "Missing required fields"}),
 
-    add = AdminAddDog(petID=data["petID"], Dogname = data["Dogname"], Image = data["Image"], description = data["description"])
+    add = AdminAddDog(petID=data["petID"], Dogname=data["Dogname"], Image=data["Image"], description=data["description"])
     db_session.add(add)
-    db_session.commit()
+    db_session.commit() 
 
-    return jsonify({"Success" : "Added Successfully"}), 201
+    return jsonify({"Success": "Added Successfully"}), 201
 # Getting Users
 
 

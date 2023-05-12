@@ -75,7 +75,6 @@ function AdminAddDog() {
                 type="text"
                 required
                 name="petID"
-                id="petID"
                 placeholder="Enter Category Name"
                 className={styles.formcontrol}
                 onChange={(event) => {
@@ -92,7 +91,6 @@ function AdminAddDog() {
                 type="text"
                 required
                 name="Dogname"
-                id="Dogname"
                 placeholder="Enter Category Name"
                 className={styles.formcontrol}
                 onChange={(event) => {
@@ -109,7 +107,6 @@ function AdminAddDog() {
                 type="text"
                 required
                 name="Image"
-                id="Image"
                 placeholder="insert Image"
                 className={styles.formcontrol}
                 onChange={(event) => {
@@ -126,7 +123,6 @@ function AdminAddDog() {
                 rows="3"
                 required
                 name="description"
-                id="description"
                 placeholder="Enter Description"
                 className={styles.formcontrol}
                 onChange={(event) => {
@@ -149,6 +145,9 @@ function AdminAddDog() {
               >
                 Save
               </button>
+              {mutation.isError && (
+                <p>Error: {mutation.error.response.data.error}</p>
+              )}
             </div>
           </div>
         </form>
