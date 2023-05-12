@@ -1,15 +1,12 @@
 import { useState } from "react";
 import styles from "../styles/adoptionform.module.scss";
 
-
-
 function apply() {
   const [username, setUsername] = useState("");
   const [contactnum, setcontactnum] = useState("");
   const [email, setemail] = useState("");
   const [petid, setpetid] = useState("");
   const [salary, setsalary] = useState("");
-
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -21,13 +18,17 @@ function apply() {
   };
 
 
+  const handleClick = (event) => {
+    event.preventDefault();
+    mutation.mutate({ username, contactnum, email, petid, salary });
+  };
+
   return (
     <div className={styles.cover}>
       <div className={styles.inside}>
         <div className={styles.Bar}>
-          
           <h1>Application Form</h1>
-          
+
           <form onSubmit={handleSubmit}>
             <label>
               Username :
@@ -92,6 +93,7 @@ function apply() {
             <br />
           </form>
         </div>
+
         <button
                className={styles.btn}
                
@@ -99,9 +101,15 @@ function apply() {
             >
                Submit
             </button>
+
+        <button className={styles.btn} onClick={handleClick} type="submit">
+          Submit
+        </button>
+        {mutation.isError && <p>Error: {mutation.error.message}</p>}
+        {mutation.isSuccess && <p>User logged in successfully!</p>}
+
       </div>
     </div>
   );
 }
 export default apply;
-

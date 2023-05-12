@@ -1,0 +1,92 @@
+import React, { useEffect, useState } from "react";
+
+function ProductList() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  const fetchProducts = () => {
+    // Perform an API call to fetch products data
+    // Replace this with your actual API call
+    // For example, you can use the fetch() function or axios library
+    fetch("/api/products")
+      .then((response) => response.json())
+      .then((data) => {
+        setProducts(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching products:", error);
+      });
+  };
+
+  const deleteProduct = (productID) => {
+    // Perform an API call to delete the product
+    // Replace this with your actual API call
+    // For example, you can use the fetch() function or axios library
+    fetch(`/api/products/${productID}`, {
+      method: "DELETE",
+    })
+      .then(() => {
+        // Update the product list after successful deletion
+        fetchProducts();
+      })
+      .catch((error) => {
+        console.error("Error deleting product:", error);
+      });
+  };
+
+  return (
+    <div className="myadmin">
+      <h1>Welcome,</h1>
+      <b>Products</b>
+      <div className="displaysite">
+        <table className="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {products.length > 0 ? (
+              products.map((product) => (
+                <tr key={product.product_ID}>
+                  <td>{product.product_ID}</td>
+                  <td>{product.product_name}</td>
+                  <td>RM {product.price}</td>
+                  <td>
+                    <a
+                      href={`Edit.php?product_ID=${product.product_ID}`}
+                      className="btn btn-primary"
+                    >
+                      Edit
+                    </a>
+                  </td>
+                  <td>
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => deleteProduct(product.product_ID)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="5">No Records Found</td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+export default ProductList;

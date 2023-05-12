@@ -1,24 +1,35 @@
 import { useState } from "react";
 import styles from "../styles/Login.module.scss";
 import axios from "axios";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation } from "react-query";
+import { useRouter } from "next/router";
 
-function login() {
+function SignUp() {
    const [username, setUsername] = useState("");
    const [email, setEmail] = useState("");
    const [password, setPassword] = useState("");
+   const [contact, setContact] = useState("");
+
+   const [usernameError, setUsernameError] = useState("");
+
+   const router = useRouter();
+   const { type } = router.query;
+
+   const apiEndpoint =
+      type === "add-staff"
+         ? "http://localhost:5000/api/add-staff"
+         : "http://localhost:5000/api/register";
+   const formHeading = type === "add-staff" ? "Add Staff" : "Sign Up";
 
    const registerUser = async (userData) => {
-      const response = await axios.post(
-         "http://localhost:5000/api/register",
-         userData
-      );
+      const response = await axios.post(apiEndpoint, userData);
       return response.data;
    };
 
    const mutation = useMutation(registerUser, {
       onSuccess: (data) => {
          console.log(data); // Handle successful registration, e.g., show a success message or redirect to another page
+         router.push("/");
       },
       onError: (error) => {
          console.error("Error during registration:", error); // Handle error response, e.g., show an error message
@@ -27,13 +38,17 @@ function login() {
 
    const handleClick = (event) => {
       event.preventDefault();
-      mutation.mutate({ username, email, password });
+      if (!username) {
+         setUsernameError("Please enter a username.");
+         return;
+      }
+      mutation.mutate({ username, email, password, contact });
    };
 
    return (
       <div className={styles.cover}>
          <div className={styles.inside}>
-            <h1>Sign Up</h1>
+            <h1>{formHeading}</h1>
             <div className={styles.Bar}>
                <form>
                   <label>
@@ -44,8 +59,14 @@ function login() {
                         type="text"
                         value={username}
                         placeholder="Please enter username"
-                        onChange={(event) => setUsername(event.target.value)}
+                        onChange={(event) => {
+                           setUsername(event.target.value);
+                           setUsernameError("");
+                        }}
                      ></input>
+                     {usernameError && (
+                        <p className={styles.error}>{usernameError}</p>
+                     )}
                   </label>
                   <br />
                   <label>
@@ -57,6 +78,18 @@ function login() {
                         value={email}
                         placeholder="Please enter email"
                         onChange={(event) => setEmail(event.target.value)}
+                     ></input>
+                  </label>
+                  <br />
+                  <label>
+                     Contact :
+                     <input
+                        className={styles.input}
+                        name="contact"
+                        type="text"
+                        value={contact}
+                        placeholder="Please enter contact"
+                        onChange={(event) => setContact(event.target.value)}
                      ></input>
                   </label>
                   <br />
@@ -91,4 +124,4 @@ function login() {
    );
 }
 
-export default login;
+export default SignUp;

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import styles from "../styles/Login.module.scss";
 import axios from "axios";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation } from "react-query";
 
 function Login() {
    const [email, setEmail] = useState("");
@@ -20,8 +20,8 @@ function Login() {
    const mutation = useMutation(loginUser, {
       onSuccess: (data) => {
          console.log(data);
-         localStorage.setItem("user", JSON.stringify(data));
-         router.push("/UserProfile");
+         localStorage.setItem("user_id", JSON.stringify(data.user_id));
+         router.push("/UserDashboard");
       },
       onError: (error) => {
          console.error("Error during login:", error); // Handle error response, e.g., show an error message
