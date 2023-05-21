@@ -1,0 +1,51 @@
+.superContainer {
+   display: flex;
+   flex-direction: row;
+}
+
+.container {
+   flex-grow: 1;
+   padding: 20px;
+   max-width: 800px; /* limit the width of the container */
+   margin: 0 auto; /* center the container */
+}
+
+.searchBar {
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 20px;
+
+   button {
+      margin-left: 10px; /* add some space between the buttons */
+      padding: 5px 10px; /* add some padding to the buttons */
+   }
+}
+
+.searchBar input[type="text"] {
+   flex-grow: 1; /* allow the search input to take up as much space as it can */
+   margin-right: 10px; /* add some space between the search input and the buttons */
+   padding: 5px; /* add some padding to the input field */
+}
+
+.staffList {
+   display: flex;
+   flex-direction: column;
+}
+
+.staffRow {
+   display: flex;
+   justify-content: space-between; /* distribute the items evenly across the row */
+   padding: 10px 0;
+   border-bottom: 1px solid #ccc;
+}
+
+.staffRow input {
+   flex-grow: 1; /* allow the inputs to take up as much space as they can */
+   margin-right: 10px; /* add some space between the inputs and the buttons */
+   padding: 5px; /* add some padding to the input fields */
+}
+
+.staffRow button {
+   margin-left: 10px; /* add some space between the buttons */
+   padding: 5px 10px; /* add some padding to the buttons */
+}

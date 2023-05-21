@@ -1,0 +1,19 @@
+@use "../../styles/utils/variables" as var;
+@use "../../styles/utils/mixins" as mx;
+
+.services {
+   width: 150px;
+   height: 135px;
+   text-align: center;
+   line-height: 1.6;
+
+   .title {
+      font-weight: var.$font-weight-600;
+      font-size: var.$font-size-16;
+   }
+
+   .content {
+      font-weight: var.$font-weight-400;
+      font-size: var.$font-size-12;
+   }
+}
